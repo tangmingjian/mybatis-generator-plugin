@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="Tables" targetRuntime="MyBatis3">
+        <property name="mergeable" value="true"/>
+        <property name="xmlMergeable" value="true"/>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="com.tangmj.mybatis.generator.plugins.LombokPlugin"/>
+        <commentGenerator type="com.tangmj.mybatis.generator.plugins.MyCommentGenerator">
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@ip:port:scheme"
+                        userId="user" password="pwd">
+            <!--oracle-->
+            <property name="remarksReporting" value="true"></property>
+            <!--mysql-->
+            <!--<property name="useInformationSchema" value="true"></property>-->
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.xxx.dao.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.xxx.dao.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <!--<table tableName="td_order" domainObjectName="Order" enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false" sqlStatement="SELECT SEQ_TD_ORDER.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="stag_num" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="is_divide" javaType="java.lang.Integer"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_ORDER_REFUND" domainObjectName="OrderRefund" enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false" sqlStatement="SELECT SEQ_TD_ORDER_REFUND.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="STAG_FEE_AMOUNT" javaType="java.lang.Long"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="td_order_payment" enableCountByExample="true" domainObjectName="OrderPayment"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_TD_ORDER_PAYMENT.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="PAY_TYPE" javaType="java.lang.Integer"/>-->
+            <!--<ignoreColumn column="ORDER_TYPE"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TBL_CERT_MANAGE" domainObjectName="CertManage"  enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_TBL_CERT_MANAGE.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Tbl" replaceString=""/>-->
+        <!--<columnOverride column="id" javaType="java.lang.Long"/>-->
+        <!--<columnOverride column="user_id" javaType="java.lang.Long"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_ORDER_INTERACTION_LOG"  domainObjectName="OrderInteractionLog"  enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_TD_ORDER_INTERACTION_LOG.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_DIVIDE_INFO" domainObjectName="DivideInfo"  enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_TD_DIVIDE_INFO.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="amount" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="payee_Fee" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="payer_Fee" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="platform_Fee" javaType="java.lang.Long"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_DIVIDE_DETAIL"  domainObjectName="DivideDetail" enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_TD_DIVIDE_DETAIL.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="divide_mode" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="divide_mode_value" javaType="java.math.BigDecimal"/>-->
+            <!--<columnOverride column="amount" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="source_divide_mode" javaType="java.lang.Integer"/>-->
+            <!--<columnOverride column="source_divide_mode_value" javaType="java.math.BigDecimal"/>-->
+        <!--</table>-->
+
+
+        <table tableName="EP_MERCHANT_INST_BIND"  domainObjectName="MerchantInstBind"  enableCountByExample="true"
+        enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">
+        <generatedKey column="id" identity="false"
+        sqlStatement="SELECT SEQ_EP_MERCHANT_INST_BIND.NEXTVAL AS ID FROM DUAL"/>
+        <domainObjectRenamingRule searchString="^Ep" replaceString=""/>
+            <columnOverride column="id" javaType="java.lang.Long"/>
+        </table>
+
+        <!--<table tableName="EP_INST_INFO" domainObjectName="InstInfo"  enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_EP_INST_INFO.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Ep" replaceString=""/>-->
+            <!--<columnOverride column="each_min" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="each_max" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="day_min" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="day_max" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="PROVISIONSID" javaType="java.lang.Long"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="EP_INST_PROPERTY" domainObjectName="InstProperty"  enableCountByExample="true"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+            <!--&lt;!&ndash;<generatedKey column="id" identity="false"&ndash;&gt;-->
+                          <!--&lt;!&ndash;sqlStatement="SELECT SEQ_EP_INST_INFO.NEXTVAL AS ID FROM DUAL"/>&ndash;&gt;-->
+            <!--<domainObjectRenamingRule searchString="^Ep" replaceString=""/>-->
+        <!--</table>-->
+
+
+        <!--<table tableName="EP_CHANNEL" domainObjectName="Channel"  enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false"-->
+        <!--sqlStatement="SELECT SEQ_EP_CHANNEL.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Ep" replaceString=""/>-->
+        <!--</table>-->
+
+        <table tableName="PT_MERCHANT_MAPPING"  domainObjectName="MerchantMapping"  enableCountByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="id" identity="false"
+                          sqlStatement="SELECT MERCHANT_MAPPING_SEQ.NEXTVAL AS ID FROM DUAL"/>
+            <domainObjectRenamingRule searchString="^Pt" replaceString=""/>
+            <columnOverride column="id" javaType="java.lang.Long"/>
+        </table>
+
+        <!--<table tableName="EP_BANK_INFO" domainObjectName="BankInfo"  enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<domainObjectRenamingRule searchString="^Ep" replaceString=""/>-->
+        <!--</table>-->
+
+        <!--<table tableName="EP_CHANNEL_AREA_CODE" domainObjectName="ChannelAreaCode"  enableCountByExample="true"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+            <!--<generatedKey column="id" identity="false"-->
+                          <!--sqlStatement="SELECT SEQ_EP_CHANNEL_AREA_CODE.NEXTVAL AS ID FROM DUAL"/>-->
+            <!--<domainObjectRenamingRule searchString="^Ep" replaceString=""/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_INST_ORDER" domainObjectName="InstOrder" enableCountByExample="true"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="SELECT SEQ_TD_INST_ORDER.NEXTVAL AS ID FROM DUAL"/>-->
+            <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="INSTROUTE_ID" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="RETRY_TIMES" javaType="java.lang.Integer"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_INST_ROUTE_ORDER" domainObjectName="InstRouteOrder" enableCountByExample="true"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="SELECT SEQ_TD_INST_ROUTE_ORDER.NEXTVAL AS ID FROM DUAL"/>-->
+            <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="inst_id" javaType="java.lang.Long"/>-->
+
+        <!--</table>-->
+
+        <!--<table tableName="TD_INST_LOG" domainObjectName="InstLog" enableCountByExample="true"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="SELECT SEQ_TD_INST_LOG.NEXTVAL AS ID FROM DUAL"/>-->
+            <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+        <!--</table>-->
+
+        <!--<table tableName="TD_ORDER_SETTLE" domainObjectName="OrderSettle" enableCountByExample="true"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" identity="false" sqlStatement="SELECT SEQ_TD_ORDER_SETTLE.NEXTVAL AS ID FROM DUAL"/>-->
+        <!--<domainObjectRenamingRule searchString="^Td" replaceString=""/>-->
+            <!--<columnOverride column="STAG_FEE_AMOUNT" javaType="java.lang.Long"/>-->
+            <!--<columnOverride column="settle_Times" javaType="java.lang.Integer"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
